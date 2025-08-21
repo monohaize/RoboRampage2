@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://knbjiqxe1uwi"]
+
+[ext_resource type="Script" uid="uid://dh82ppqfxlr1t" path="res://Script/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://jn8mfnc47ed5" path="res://download.jpg" id="1_v0iea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvnsp"]
+albedo_texture = ExtResource("1_v0iea")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6t5aa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_cvnsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_cvnsp")
+mesh = SubResource("CapsuleMesh_6t5aa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vgqql")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
